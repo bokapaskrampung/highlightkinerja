@@ -3,185 +3,300 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BO Kapas Krampung 2026</title>
+<title>BO Kapas Krampung · Dashboard 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
+:root{
+  --bg:#eef1f6;
+  --surface:#ffffff;
+  --text:#202a38;
+  --text-dim:#5f6c80;
+  --text-faint:#9aa6b8;
+  --line-soft:#dde3ec;
+  --shadow-sm:0 1px 5px rgba(40,60,90,.07);
+  --shadow-md:0 10px 22px rgba(40,60,90,.13);
+  --blue:#3b6ea5;   --blue-soft:#e7eef8;
+  --teal:#2f9e8f;   --teal-soft:#e3f3f0;
+  --violet:#7c6fd4; --violet-soft:#efedfb;
+  --font:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1b2a;min-height:100vh;padding:0 0 40px;}
-.wrap{max-width:480px;margin:0 auto;padding:20px 14px 32px;}
-.header{text-align:center;padding:28px 0 24px;}
-.avatar{width:64px;height:64px;border-radius:50%;background:#1a2e45;border:1.5px solid #2a4060;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
-.avatar i{font-size:30px;color:#4a8abf;}
-.title{font-size:20px;font-weight:600;color:#e8edf2;margin:0 0 4px;}
-.sub{font-size:12px;color:#5a7a9a;letter-spacing:0.04em;}
-.sec-label{font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;margin:22px 0 10px;padding-bottom:7px;border-bottom:0.5px solid #1e3050;}
-.lbl-kinerja{color:#d4a94a;}
-.lbl-pinjaman{color:#3ecf8e;}
-.lbl-simpanan{color:#e07a52;}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:2px;}
-a.card{display:flex;align-items:center;gap:10px;padding:13px 11px;border-radius:10px;background:#112035;border:0.5px solid #1e3555;text-decoration:none;transition:background .15s,border-color .15s;}
-a.card:hover{background:#162840;border-color:#2a4a70;}
-a.card:active{background:#0e1c2e;}
-.icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.icon i{font-size:19px;}
-.ic-amber{background:#2a1e08;}.ic-amber i{color:#d4a94a;}
-.ic-green{background:#0a2018;}.ic-green i{color:#3ecf8e;}
-.ic-coral{background:#2a1008;}.ic-coral i{color:#e07a52;}
-.name{font-size:12px;color:#c8d8e8;flex:1;line-height:1.35;}
-.arr{font-size:12px;color:#2a4565;flex-shrink:0;}
-.footer{text-align:center;font-size:11px;color:#1e3050;margin-top:28px;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font);
+  background:linear-gradient(180deg,#f4f6fa 0%,var(--bg) 360px);
+  color:var(--text);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+
+.page{max-width:640px;margin:0 auto;padding:clamp(28px,6vw,60px) clamp(16px,4vw,32px) 44px;}
+
+/* ---- hero ---- */
+.hero{max-width:520px;margin:0 auto;text-align:center;}
+.badge{width:60px;height:60px;border-radius:16px;background:var(--surface);box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.badge i{font-size:25px;color:var(--blue);}
+.hero h1{font-weight:700;font-size:clamp(22px,3vw,28px);letter-spacing:-.01em;margin-bottom:6px;}
+.eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);font-weight:600;}
+
+.quicknav{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:22px;}
+.pill{font-size:11px;font-weight:600;letter-spacing:.02em;padding:7px 16px;border-radius:999px;background:var(--surface);box-shadow:var(--shadow-sm);text-decoration:none;transition:transform .15s,box-shadow .15s;}
+.pill:hover,.pill:focus-visible{transform:translateY(-1px);box-shadow:var(--shadow-md);}
+.pill-blue{color:var(--blue);}
+.pill-teal{color:var(--teal);}
+.pill-violet{color:var(--violet);}
+
+/* ---- sections ---- */
+main{margin-top:clamp(30px,4vw,46px);}
+.section{margin-bottom:clamp(30px,4vw,42px);scroll-margin-top:20px;}
+
+.section-head{display:flex;align-items:center;gap:9px;margin-bottom:14px;}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.dot-blue{background:var(--blue);}
+.dot-teal{background:var(--teal);}
+.dot-violet{background:var(--violet);}
+.section-head h2{font-weight:700;font-size:13px;letter-spacing:.01em;white-space:nowrap;}
+.section-head .hairline{flex:1;height:1px;background:var(--line-soft);}
+
+.grid{display:flex;flex-direction:column;gap:8px;}
+
+.card{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:var(--surface);box-shadow:var(--shadow-sm);text-decoration:none;transition:transform .15s ease,box-shadow .15s ease;}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.card:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+
+.card-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.card-icon i{font-size:17px;}
+.card-name{font-size:12.5px;color:#384354;font-weight:500;flex:1;line-height:1.35;}
+.card-arrow{font-size:12px;color:var(--text-faint);flex-shrink:0;transition:color .15s;}
+.card:hover .card-arrow{color:var(--text-dim);}
+
+#kinerja .card-icon{background:var(--blue-soft);}
+#kinerja .card-icon i{color:var(--blue);}
+#pinjaman .card-icon{background:var(--teal-soft);}
+#pinjaman .card-icon i{color:var(--teal);}
+#simpanan .card-icon{background:var(--violet-soft);}
+#simpanan .card-icon i{color:var(--violet);}
+
+.foot{text-align:center;margin-top:36px;}
+.foot p{font-size:11px;color:var(--text-faint);font-weight:500;}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .card,.pill{transition:none;}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="page">
 
-  <div class="header">
-    <div class="avatar">
-      <i class="ti ti-building-bank"></i>
-    </div>
-    <p class="title">BO Kapas Krampung</p>
-    <p class="sub">Highlight Kinerja 2026</p>
-  </div>
+  <header class="hero">
+    <div class="badge"><i class="ti ti-building-bank"></i></div>
+    <h1>BO Kapas Krampung</h1>
+    <p class="eyebrow">Highlight Kinerja · 2026</p>
+    <nav class="quicknav">
+      <a class="pill pill-blue" href="#kinerja">Kinerja</a>
+      <a class="pill pill-teal" href="#pinjaman">Pinjaman</a>
+      <a class="pill pill-violet" href="#simpanan">Simpanan</a>
+    </nav>
+  </header>
 
-  <!-- HIGHLIGHT KINERJA -->
-  <p class="sec-label lbl-kinerja">Highlight Kinerja</p>
-  <div class="grid">
+  <main>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbxtlFYohWWfk2STvcEcaPO-ZcZGWU_wSGJe5yumchn9CYwaxlhFCVAEFOh9HsPZs_jwHA/exec" target="_blank">
-      <div class="icon ic-amber"><i class="ti ti-chart-dots-3"></i></div>
-      <span class="name">Quick Count Keragaan</span><span class="arr">↗</span>
-    </a>
+    <!-- KINERJA -->
+    <section id="kinerja" class="section">
+      <div class="section-head">
+        <span class="dot dot-blue"></span>
+        <h2>Highlight Kinerja</h2>
+        <span class="hairline"></span>
+      </div>
+      <div class="grid">
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbwM5rD-CoVyMzBSWyiJHikbaVbG7n0rjqrctqrszfkYRk4JdSeQQTvTxtIwEAnQR07d/exec" target="_blank">
-      <div class="icon ic-amber"><i class="ti ti-report-analytics"></i></div>
-      <span class="name">Breakdown RKA</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbxtlFYohWWfk2STvcEcaPO-ZcZGWU_wSGJe5yumchn9CYwaxlhFCVAEFOh9HsPZs_jwHA/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-chart-dots-3"></i></span>
+          <span class="card-name">Quick Count Keragaan</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbyAhrs9L1fpOUcNCpfl26IOpVfxeoIagr3UzsuUIJRrpxz5R3PbzCrwakGx27d8caz6XA/exec" target="_blank">
-      <div class="icon ic-amber"><i class="ti ti-calendar-stats"></i></div>
-      <span class="name">Data Keragaan Juni</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbwM5rD-CoVyMzBSWyiJHikbaVbG7n0rjqrctqrszfkYRk4JdSeQQTvTxtIwEAnQR07d/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-report-analytics"></i></span>
+          <span class="card-name">Breakdown RKA</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbzjDxwWhMJAF_RpC0bnHg51n8_iHqJ6GGlgbiEdT8SOBcMRjd8j4cnptS8WRTbR_iUDGg/exec" target="_blank">
-      <div class="icon ic-amber"><i class="ti ti-calendar-event"></i></div>
-      <span class="name">Data Keragaan Mei</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbyAhrs9L1fpOUcNCpfl26IOpVfxeoIagr3UzsuUIJRrpxz5R3PbzCrwakGx27d8caz6XA/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-calendar-stats"></i></span>
+          <span class="card-name">Data Keragaan Juni</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbwz2NNb8-WVl3WXqmNeHgFXq9mLbK_if2bifAKgw3X72usQWsLV6GeHlbiPydtup6a4uA/exec" target="_blank">
-      <div class="icon ic-amber"><i class="ti ti-award"></i></div>
-      <span class="name">Skor KPI</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbzjDxwWhMJAF_RpC0bnHg51n8_iHqJ6GGlgbiEdT8SOBcMRjd8j4cnptS8WRTbR_iUDGg/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-calendar-event"></i></span>
+          <span class="card-name">Data Keragaan Mei</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbyTR0ygOLsanWjqhyBqb3A4VG8wRWvTyqilIcgpO2b1hWqFzWCnzZeqwBQFVdBHsj5KcA/exec" target="_blank">
-      <div class="icon ic-amber"><i class="ti ti-chart-pie"></i></div>
-      <span class="name">Market Share</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbwz2NNb8-WVl3WXqmNeHgFXq9mLbK_if2bifAKgw3X72usQWsLV6GeHlbiPydtup6a4uA/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-award"></i></span>
+          <span class="card-name">Skor KPI</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbyD0nszfbLOCQhXzf0E3OtB880Aj1YVTZaFgNVRvrY_-2EEEaHgSc-dpjpSJJWQnyw/exec" target="_blank">
-      <div class="icon ic-amber"><i class="ti ti-database-search"></i></div>
-      <span class="name">Almafact</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbyTR0ygOLsanWjqhyBqb3A4VG8wRWvTyqilIcgpO2b1hWqFzWCnzZeqwBQFVdBHsj5KcA/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-chart-pie"></i></span>
+          <span class="card-name">Market Share</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbwFx8azgd0wguDVeVCXNUSoxTPnN3f7bYlovDNYtaUGiySa0teqh5is9zOF0_gSoEao/exec" target="_blank">
-      <div class="icon ic-amber"><i class="ti ti-cash"></i></div>
-      <span class="name">Laba Rugi</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbyD0nszfbLOCQhXzf0E3OtB880Aj1YVTZaFgNVRvrY_-2EEEaHgSc-dpjpSJJWQnyw/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-database-search"></i></span>
+          <span class="card-name">Almafact</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-  </div>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbwFx8azgd0wguDVeVCXNUSoxTPnN3f7bYlovDNYtaUGiySa0teqh5is9zOF0_gSoEao/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-cash"></i></span>
+          <span class="card-name">Laba Rugi</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-  <!-- PINJAMAN -->
-  <p class="sec-label lbl-pinjaman">Pinjaman</p>
-  <div class="grid">
+      </div>
+    </section>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbxXx2lFzMhZJH-tsBfbb-wumEiZP0xoqQ7xToaqjAyJOOMYY7sM6rmSgTCMA7KewiPY/exec" target="_blank">
-      <div class="icon ic-green"><i class="ti ti-building-skyscraper"></i></div>
-      <span class="name">Monitoring SME</span><span class="arr">↗</span>
-    </a>
+    <!-- PINJAMAN -->
+    <section id="pinjaman" class="section">
+      <div class="section-head">
+        <span class="dot dot-teal"></span>
+        <h2>Pinjaman</h2>
+        <span class="hairline"></span>
+      </div>
+      <div class="grid">
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbwLGKuUs_rFQDm9C9sqqZCu0CxaDhWCPs1NGOkGPnvJC7Cmej-XHilX8sfYWtcH4rXn/exec" target="_blank">
-      <div class="icon ic-green"><i class="ti ti-user-dollar"></i></div>
-      <span class="name">Monitoring Mikro</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbxXx2lFzMhZJH-tsBfbb-wumEiZP0xoqQ7xToaqjAyJOOMYY7sM6rmSgTCMA7KewiPY/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-building-skyscraper"></i></span>
+          <span class="card-name">Monitoring SME</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbzJhY1R4SY4VVNfD5Cn99XRsTgqASA2ueQohhtQw82-Y_xlNoqTfDGXnVcg4dBMvhRx/exec" target="_blank">
-      <div class="icon ic-green"><i class="ti ti-flame"></i></div>
-      <span class="name">Hotprospek Juni</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbwLGKuUs_rFQDm9C9sqqZCu0CxaDhWCPs1NGOkGPnvJC7Cmej-XHilX8sfYWtcH4rXn/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-user-dollar"></i></span>
+          <span class="card-name">Monitoring Mikro</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbwYeIBomSZ5-w-BQ_qIp8kBQBIK0CmWR44_CKnsH0kkF1NvgqXBVGh_kNp6QPQNq3Ps/exec" target="_blank">
-      <div class="icon ic-green"><i class="ti ti-flame"></i></div>
-      <span class="name">Hotprospek Mei</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbzJhY1R4SY4VVNfD5Cn99XRsTgqASA2ueQohhtQw82-Y_xlNoqTfDGXnVcg4dBMvhRx/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-flame"></i></span>
+          <span class="card-name">Hotprospek Juni</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbzNDkahl8UN1TYuJ_ugM42AZfCWwO0SxIkKxesY2WEwpBQQ-LpNj4WC7aHdhMubAZDn/exec" target="_blank">
-      <div class="icon ic-green"><i class="ti ti-target-arrow"></i></div>
-      <span class="name">Realisasi RM</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbwYeIBomSZ5-w-BQ_qIp8kBQBIK0CmWR44_CKnsH0kkF1NvgqXBVGh_kNp6QPQNq3Ps/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-flame"></i></span>
+          <span class="card-name">Hotprospek Mei</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbx_nSM2wzwouom9YS-NB4FWSGd5qFHE_qUVT6nj4FT_U06anq57ZLqfRv60p4y8R5mL/exec" target="_blank">
-      <div class="icon ic-green"><i class="ti ti-git-merge"></i></div>
-      <span class="name">Pipeline</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbzNDkahl8UN1TYuJ_ugM42AZfCWwO0SxIkKxesY2WEwpBQQ-LpNj4WC7aHdhMubAZDn/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-target-arrow"></i></span>
+          <span class="card-name">Realisasi RM</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbwT0pLyhEt4eGs3HWZpUeDzthk31-R1zXnnuxv1XfesG6Mbj84LTt-9ITUF6M8gT-By/exec" target="_blank">
-      <div class="icon ic-green"><i class="ti ti-user-star"></i></div>
-      <span class="name">RM CRR</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbx_nSM2wzwouom9YS-NB4FWSGd5qFHE_qUVT6nj4FT_U06anq57ZLqfRv60p4y8R5mL/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-git-merge"></i></span>
+          <span class="card-name">Pipeline</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://bokapaskrampung.github.io/slikanalyzer/" target="_blank">
-      <div class="icon ic-green"><i class="ti ti-file-search"></i></div>
-      <span class="name">SLIK Analyzer</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbwT0pLyhEt4eGs3HWZpUeDzthk31-R1zXnnuxv1XfesG6Mbj84LTt-9ITUF6M8gT-By/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-user-star"></i></span>
+          <span class="card-name">RM CRR</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-  </div>
+        <a class="card" href="https://bokapaskrampung.github.io/slikanalyzer/" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-file-search"></i></span>
+          <span class="card-name">SLIK Analyzer</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-  <!-- SIMPANAN -->
-  <p class="sec-label lbl-simpanan">Simpanan</p>
-  <div class="grid">
+        <a class="card" href="https://bokapaskrampung.github.io/slikanalyzer/" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-file-search"></i></span>
+          <span class="card-name">RK Analyzer</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbw-VvpnWFGilSeT7hAPfuo0s-ZH9jD9swSktgs3zaot2k82ZrP9w4IrF-S0TToc586-/exec" target="_blank">
-      <div class="icon ic-coral"><i class="ti ti-chart-bar"></i></div>
-      <span class="name">Monitoring Simpanan</span><span class="arr">↗</span>
-    </a>
+      </div>
+    </section>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbwrjoYRpykGHXdVZiNaWeJf8LmU8AFOWBojtDwVZIJB-0TCGLyTn-TMuJPLdJ9SvE7jiQ/exec" target="_blank">
-      <div class="icon ic-coral"><i class="ti ti-pig-money"></i></div>
-      <span class="name">Monitoring Tabungan</span><span class="arr">↗</span>
-    </a>
+    <!-- SIMPANAN -->
+    <section id="simpanan" class="section">
+      <div class="section-head">
+        <span class="dot dot-violet"></span>
+        <h2>Simpanan</h2>
+        <span class="hairline"></span>
+      </div>
+      <div class="grid">
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbzkMvAE32r0CUuCyGu4W-iFN-TCXGhjXkV7Hh73Kz98JWgTf5C21mLummdJkIRS3dQs/exec" target="_blank">
-      <div class="icon ic-coral"><i class="ti ti-file-invoice"></i></div>
-      <span class="name">Monitoring Giro</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbw-VvpnWFGilSeT7hAPfuo0s-ZH9jD9swSktgs3zaot2k82ZrP9w4IrF-S0TToc586-/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-chart-bar"></i></span>
+          <span class="card-name">Monitoring Simpanan</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbxQoI-s1_9kNOgANx6KiLseWjbPMuzp5uXgqD3LdsCDrxuCpqg90eTsJJimWm034s-xeg/exec" target="_blank">
-      <div class="icon ic-coral"><i class="ti ti-lock-dollar"></i></div>
-      <span class="name">Monitoring Deposito</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbwrjoYRpykGHXdVZiNaWeJf8LmU8AFOWBojtDwVZIJB-0TCGLyTn-TMuJPLdJ9SvE7jiQ/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-pig-money"></i></span>
+          <span class="card-name">Monitoring Tabungan</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbyG5WmQRbBIiMRA734oi__07QN7Bfe4UUpfcnHaAf6OcMOuFtz7cslHtPBu_Yy4fska/exec" target="_blank">
-      <div class="icon ic-coral"><i class="ti ti-arrows-exchange"></i></div>
-      <span class="name">Simpanan Pinjaman</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbzkMvAE32r0CUuCyGu4W-iFN-TCXGhjXkV7Hh73Kz98JWgTf5C21mLummdJkIRS3dQs/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-file-invoice"></i></span>
+          <span class="card-name">Monitoring Giro</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbwOS3_-djz5RwwDPYWo3fXfENYzkGjz4QYk-45SM_3CUwk1XpwL_IY7skHcitXS8Epm/exec" target="_blank">
-      <div class="icon ic-coral"><i class="ti ti-device-mobile-dollar"></i></div>
-      <span class="name">EDC</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbxQoI-s1_9kNOgANx6KiLseWjbPMuzp5uXgqD3LdsCDrxuCpqg90eTsJJimWm034s-xeg/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-lock-dollar"></i></span>
+          <span class="card-name">Monitoring Deposito</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbzgv1xJ7_nuyZB0nTYCPgEZR32FlbsQLwMK4-YLytvx_lvnhJmTV_cbtgw8geZoWWYv/exec" target="_blank">
-      <div class="icon ic-coral"><i class="ti ti-qrcode"></i></div>
-      <span class="name">QRIS</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbyG5WmQRbBIiMRA734oi__07QN7Bfe4UUpfcnHaAf6OcMOuFtz7cslHtPBu_Yy4fska/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-arrows-exchange"></i></span>
+          <span class="card-name">Simpanan Pinjaman</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-    <a class="card" href="https://script.google.com/macros/s/AKfycbybzHx8r7EdzX8fZhZSHjJ85STYYeJmWvWHQV1tva0NP9qszgdgjTrcP1WsN6KsW31tFQ/exec" target="_blank">
-      <div class="icon ic-coral"><i class="ti ti-circle-letter-q"></i></div>
-      <span class="name">QLOLA</span><span class="arr">↗</span>
-    </a>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbwOS3_-djz5RwwDPYWo3fXfENYzkGjz4QYk-45SM_3CUwk1XpwL_IY7skHcitXS8Epm/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-device-mobile-dollar"></i></span>
+          <span class="card-name">EDC</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-  </div>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbzgv1xJ7_nuyZB0nTYCPgEZR32FlbsQLwMK4-YLytvx_lvnhJmTV_cbtgw8geZoWWYv/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-qrcode"></i></span>
+          <span class="card-name">QRIS</span>
+          <span class="card-arrow">↗</span>
+        </a>
 
-  <p class="footer">© 2026 BO Kapas Krampung · Bank BRI</p>
+        <a class="card" href="https://script.google.com/macros/s/AKfycbybzHx8r7EdzX8fZhZSHjJ85STYYeJmWvWHQV1tva0NP9qszgdgjTrcP1WsN6KsW31tFQ/exec" target="_blank" rel="noopener">
+          <span class="card-icon"><i class="ti ti-circle-letter-q"></i></span>
+          <span class="card-name">QLOLA</span>
+          <span class="card-arrow">↗</span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <p>© 2026 BO Kapas Krampung</p>
+  </footer>
+
 </div>
 </body>
 </html>
